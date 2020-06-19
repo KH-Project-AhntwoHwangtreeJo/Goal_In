@@ -6,7 +6,6 @@
     <%@ include file="views/common/searchBar.jsp" %>
     
     <!-- slider_area_end -->
-
     <div class="explorer_europe"></div>
     
     <div class="popular_catagory_area">
