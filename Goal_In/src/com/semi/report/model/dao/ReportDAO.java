@@ -146,6 +146,8 @@ public class ReportDAO {
 				a.setSigndate(rset.getDate(5));
 				a.setSigntf(rset.getString(6));
 				
+				
+				
 				list.add(a);
 				
 			}
