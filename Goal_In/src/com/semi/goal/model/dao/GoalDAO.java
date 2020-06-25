@@ -576,4 +576,39 @@ public class GoalDAO {
 		
 		return w;
 	}
+
+	public int[] selectContentCnt2(Connection con, String userid, int gno) {
+			int[] cnt2 = null;
+			PreparedStatement pstmt = null;
+			ResultSet rset = null;
+			String sql = prop.getProperty("selectContentCnt2");
+
+			try {
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, userid);
+				pstmt.setInt(2, gno);
+				pstmt.setString(3, userid);
+				pstmt.setInt(4, gno);
+				
+				rset = pstmt.executeQuery();
+
+				cnt2 = new int[2];
+				
+				
+
+				while (rset.next()) {
+					for(int i = 0 ; i < 2 ; i++) cnt2[i] = rset.getInt((i+1)); // 데이터 베이스 시작은 1부터!
+				}
+				
+
+			} catch (SQLException e) {
+				e.printStackTrace();
+
+			} finally {
+				close(rset);
+				close(pstmt);
+			}
+
+			return cnt2;
+	}
 }
