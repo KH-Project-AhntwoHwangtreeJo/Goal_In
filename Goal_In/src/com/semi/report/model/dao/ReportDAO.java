@@ -18,16 +18,14 @@ import com.semi.report.model.vo.Report;
 
 public class ReportDAO {
 	private Properties prop;
-	
+
 	public ReportDAO() {
 		prop = new Properties();
-		
-		String filePath = ReportDAO.class
-				          .getResource("/config/report.properties")
-				          .getPath();
-		
+
+		String filePath = ReportDAO.class.getResource("/config/report.properties").getPath();
+
 		// System.out.println(filePath);
-		
+
 		try {
 			prop.load(new FileReader(filePath));
 		} catch (IOException e) {
@@ -40,28 +38,28 @@ public class ReportDAO {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		String sql = prop.getProperty("reportList");
-		
+
 		try {
 			pstmt = con.prepareStatement(sql);
-			
+
 			rset = pstmt.executeQuery();
-			
+
 			list = new ArrayList<Report>();
-			
-			while(rset.next()) {
+
+			while (rset.next()) {
 				Report r = new Report();
-				
+
 				r.setSignnum(rset.getInt(1));
 				r.setUserid(rset.getString(2));
-				
+
 				list.add(r);
 			}
-		} catch(SQLException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			close(rset);
 			close(pstmt);
-		}		
+		}
 		return list;
 	}
 
@@ -70,15 +68,75 @@ public class ReportDAO {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		String sql = prop.getProperty("signList");
-		
+
 		try {
 			pstmt = con.prepareStatement(sql);
-			
+
 			rset = pstmt.executeQuery();
-			
+
 			list = new ArrayList<Auth>();
-			
-			while(rset.next()) {
+
+			while (rset.next()) {
+				Auth a = new Auth();
+
+				a.setSignnum(rset.getInt(1));
+				a.setUserid(rset.getString(2));
+				a.setGno(rset.getInt(3));
+				a.setSigncf(rset.getString(4));
+				a.setSigndate(rset.getDate(5));
+				a.setSigntf(rset.getString(6));
+
+				list.add(a);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return list;
+	}
+
+	public int updateStatus(Connection con, int signNum, String status) {
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("RstatusUpdate");
+		if (status.equals("false")) {
+			status = "N";
+		} else {
+			status = "Y";
+		}
+		try {
+			pstmt = con.prepareStatement(sql);
+
+			pstmt.setString(1, status);
+			pstmt.setInt(2, signNum);
+
+			result = pstmt.executeUpdate();
+			System.out.println(result);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+
+		return result;
+	}
+
+	public ArrayList<Auth> listSign2(Connection con) {
+		ArrayList<Auth> list = null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("authallList");
+
+		try {
+			pstmt = con.prepareStatement(sql);
+
+			rset = pstmt.executeQuery();
+
+			list = new ArrayList<Auth>();
+
+			while (rset.next()) {
 				Auth a = new Auth();
 				
 				a.setSignnum(rset.getInt(1));
@@ -89,40 +147,17 @@ public class ReportDAO {
 				a.setSigntf(rset.getString(6));
 				
 				list.add(a);
+				
 			}
-		} catch(SQLException e) {
+			
+			System.out.println("dao :  " + list);
+			
+		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			close(rset);
 			close(pstmt);
-		}		
+		}
 		return list;
 	}
-
-	public int updateStatus(Connection con, int signNum, String status) {
-		int result  = 0;
-		PreparedStatement pstmt = null;
-		String sql = prop.getProperty("RstatusUpdate");
-		if(status.equals("false")) {
-			status = "N";
-		} else {
-			status = "Y";
-		}
-		try {
-			pstmt = con.prepareStatement(sql);
-			
-			pstmt.setString(1, status);
-			pstmt.setInt(2, signNum);
-			
-			result = pstmt.executeUpdate();
-			System.out.println(result);
-		} catch (SQLException e ) {
-			e.printStackTrace();
-		} finally {
-			close(pstmt);
-		}		
-		
-		return result;
-	}
-
 }

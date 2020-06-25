@@ -8,12 +8,24 @@
 						<!-- Main menu -->
 						<li class="current"><a href="adminIndex.jsp"><i
 								class="glyphicon glyphicon-home"></i>관리자 </a></li>
+								
+								
 						<li><a href="selectList.no"><i
 								class="glyphicon glyphicon-list"></i> 회원관리</a></li>
+								
+								
 						<li><a href="GselectList.no"><i
 								class="glyphicon glyphicon-list"></i> Goal관리</a></li>
+								
+								
 						<li><a href="RselectList.no"><i
 								class="glyphicon glyphicon-list"></i> 인증관리<br></a></li>
+								
+								
+									<li><a href="RselectList2.no"><i
+								class="glyphicon glyphicon-list"></i> 인증전체 목록<br></a></li>
+								
+								
 						<li><a href="NselectList.no"><i
 								class="glyphicon glyphicon-list"></i> 공지사항<br></a></li>
 					</ul>

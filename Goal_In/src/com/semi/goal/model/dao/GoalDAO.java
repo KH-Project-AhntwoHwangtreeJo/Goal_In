@@ -225,9 +225,9 @@ public class GoalDAO {
 			pstmt = con.prepareStatement(sql);
 
 			
-			rset = pstmt.executeQuery();
-			
 			list = new ArrayList<Goal>();
+			
+			rset = pstmt.executeQuery();
 			
 			while(rset.next()) {
 				Goal g = new Goal();
