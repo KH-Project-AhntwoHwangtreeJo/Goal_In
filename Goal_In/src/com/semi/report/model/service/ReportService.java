@@ -1,3 +1,4 @@
+
 package com.semi.report.model.service;
 
 import static com.semi.common.JDBCTemplate.close;
@@ -17,24 +18,22 @@ import com.semi.report.model.vo.Report;
 public class ReportService {
 	private ReportDAO rDAO = new ReportDAO();
 	private Connection con;
-	
+
 	public HashMap<String, Object> selectList() {
 		con = getConnection();
-		
+
 		HashMap<String, Object> hmap = new HashMap<String, Object>();
-		
+
 		ArrayList<Report> list = rDAO.listReport(con);
 		ArrayList<Auth> alist = rDAO.listSign(con);
 
-		hmap.put("list", list);  // Join 리스트
+		hmap.put("list", list); // Join 리스트
 		hmap.put("alist", alist); // 골리스트
-		
+
 		close(con);
-		
+
 		return hmap;
-		
-		
-		
+
 	}
 
 	public int updateStatus(int signNum, String status) {
@@ -51,5 +50,20 @@ public class ReportService {
 
 		return result;
 	}
-	
+
+	public HashMap<String, Object> selectList2() {
+		con = getConnection();
+
+		HashMap<String, Object> hmap = new HashMap<String, Object>();
+
+		ArrayList<Auth> alist = rDAO.listSign2(con);
+
+		hmap.put("alist", alist); // 골리스트
+
+		close(con);
+
+		return hmap;
+
+	}
+
 }

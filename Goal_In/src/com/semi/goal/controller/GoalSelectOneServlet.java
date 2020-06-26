@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.semi.goal.model.service.GoalService;
 import com.semi.goal.model.vo.Goal;
@@ -32,11 +33,15 @@ public class GoalSelectOneServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession(false);
+		Member m = (Member)session.getAttribute("member");
 		int gno = Integer.parseInt(request.getParameter("gno"));
+		
 		
 		GoalService gs = new GoalService();
 		Goal g = gs.selectOne(gno);
 		int[] cnt = gs.selectContentCnt(gno);
+		int[] cnt2 = gs.selectContentCnt2(m.getUserid(), gno);
 		Member w = gs.selectGoalWriter(gno);
 		System.out.println(w);
 		String page = "";
@@ -44,6 +49,7 @@ public class GoalSelectOneServlet extends HttpServlet {
 	      if(g != null) {
 	         request.setAttribute("goal", g);
 	         request.setAttribute("cnt", cnt);
+	         request.setAttribute("cnt2", cnt2);
 	         request.setAttribute("writer", w);
 	         page = "views/goal/goalDetail.jsp";
 	      } else {

@@ -91,10 +91,7 @@ public class InsertJoinServlet extends HttpServlet {
 			
 			response.setContentType("text/html; charset=utf-8");
             PrintWriter out = response.getWriter();
-            out.println("<script>");
-            out.println("alert('이미 등록했었던 골입니다');");
-            out.println("history.back();");
-            out.println("</script>");
+            
 //			request.setAttribute("error-msg","이미 참여중인 골 입니다.");
 //			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
 			
