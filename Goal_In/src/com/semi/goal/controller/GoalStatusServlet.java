@@ -24,9 +24,9 @@ public class GoalStatusServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int Gno = Integer.parseInt(request.getParameter("Gno"));
 		String status = request.getParameter("status");
-			System.out.println(status);
+		System.out.println(status);
 		
-int result = new GoalService().updateStatus(Gno, status);
+		int result = new GoalService().updateStatus(Gno, status);
 		
 		response.setContentType("application/json; charset=utf-8");
 		response.getWriter().print(result);
