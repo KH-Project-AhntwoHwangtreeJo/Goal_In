@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"    import="com.semi.member.model.vo.*" %>
     <%
-	Member m = (Member)session.getAttribute("member");
+Member 	m = (Member)session.getAttribute("member");
 %>
 <!doctype html>
 <html class="no-js" lang="ko">

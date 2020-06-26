@@ -13,6 +13,9 @@ import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import com.semi.auth.model.service.AuthService;
 import com.semi.auth.model.vo.Auth;
+import com.semi.goal.model.service.GoalService;
+import com.semi.join.*;
+import com.semi.join.model.service.JoinService;
 
 /**
  * Servlet implementation class AuthInsertServlet
@@ -95,8 +98,21 @@ public class AuthInsertServlet extends HttpServlet {
 			request.setAttribute("error-msg", "인증 등록 실패");
 			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
 		}
-				
+		
+		// 골  달성률 80이상이면 성공여부 변경
+		String userId = request.getParameter("userid");
+		int Gno = Integer.parseInt(request.getParameter("Gno"));
+		int Mpercent = Integer.parseInt(request.getParameter("mpercent"));
+		String Success = request.getParameter("success");
+	
+    int result1 = new JoinService().updateGoalSuccess(userid, gno, Mpercent, Success);
+
+    response.setContentType("application/json; charset=utf-8");
+    response.getWriter().print(result);
+	
 	}
+
+	
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
