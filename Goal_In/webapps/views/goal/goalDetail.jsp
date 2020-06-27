@@ -9,6 +9,7 @@
 	Reviews reviews = (Reviews)request.getAttribute("reviews");
 	int[] cnt = (int[]) request.getAttribute("cnt"); // 0 : 후기 개수 / 1 : 좋아요 개수 / 2 : 인증 개수 
 	Member w = (Member)request.getAttribute("writer"); // 골 작성자 정보
+	int[] cnt2 = (int[]) request.getAttribute("cnt2"); // 0이면 안했고 1이면 했다         0 : 참여를 했는지 / 1: 좋아요를 했는지
 %>
 <%@ include file="/views/common/header.jsp" %>
 
@@ -36,28 +37,45 @@
                      <br>
                      <div class="d-sm-flex justify-content-between text-center">
                         <p class="like-info"><span class="align-middle"><i class="fa fa-heart" ></i></span>
-                           관심있는 사람 <%= cnt[1] %>명
+                           관심있는 사람 <%= cnt[1] %>명 <%= cnt2[1] %>
                         </p>
                      </div>
-                     <% if(m != null ) { %>
+                     <% if(m != null) { %>
+                     <% if (cnt2[0] == 0) {%>
                        		<button type="button" class="btn btn-warning btn-lg btn-block"
                          data-toggle="modal" data-target="#Joinform" >참여하기</button>
-                         
-                        <button type="button"  id="likeGoal" class="btn btn-outline-danger btn-lg btn-block"
-                        onclick="insertLove();">관심 목록에 저장
-                           &nbsp;<i class="fa fa-heart" ></i></button> </form>
+                         <%} else { %>
+                         <button type="button" class="btn btn-warning btn-lg btn-block notyet2">참여하기</button>
+                         <%} %>
+                        <% if (cnt2[1] == 0) {%>
+                        <button type="button"  id="likeGoal" class="btn btn-outline-danger btn-lg btn-block love"
+                        onclick="insertLove();">관심 목록에 저장 &nbsp;<i class="fa fa-heart" ></i></button> </form>
+                        
+                        
+                        <% } else { %>
+                         <button type="button" class="btn btn-outline-danger btn-lg btn-block notyet3">관심 목록에 저장
+                          &nbsp;<i class="fa fa-heart" ></i></button> </form>
+                        <% } %>
                        	<%} else { %>
                      	<button type="button" class="btn btn-warning btn-lg btn-block notyet">참여하기</button>
                         <button type="button" class="btn btn-outline-danger btn-lg btn-block notyet">관심 목록에 저장
-                           &nbsp;<i class="fa fa-heart" ></i></button>
-                           <script>
+                           &nbsp;<i class="fa fa-heart" ></i></button>    
+                           <%} %>
+                            <script>
                            		$('.notyet').on('click',function(){
                            				alert("로그인해야만 가능합니다!");
                            		});
-                           		
-           
+                           		$('.notyet2').on('click',function(){
+                       				alert("이미 참여했었던 골입니다!.");
+                       		});
+                           		$('.notyet3').on('click',function(){
+                       				alert("이미 좋아요했습니다!");
+                       		});
+                           		$('.love').on('click',function(){
+                       				alert("좋아요 성공!!!!");
+                       		});
                            </script>
-                           <%} %>
+                           
                   </div>
  					<div class="blog-author">
                      <div class="media align-items-center">

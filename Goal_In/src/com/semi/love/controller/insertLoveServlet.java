@@ -80,10 +80,7 @@ public class insertLoveServlet extends HttpServlet {
 		}else {
 			response.setContentType("text/html; charset=utf-8");
 	         PrintWriter out = response.getWriter();
-	            out.println("<script>");
-	            out.println("alert('이미 관심목록에 있습니다');");
-	            out.println("history.back();");
-	            out.println("</script>");
+	            
 	            
 			System.out.println("추가 됨 ? : 이미있어서 아됨");
 //			request.setAttribute("error-msg","이미 참여중인 골 입니다.");

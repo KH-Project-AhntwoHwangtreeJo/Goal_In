@@ -181,6 +181,19 @@ public class GoalService {
 			}
 
 
+			public int[] selectContentCnt2(String userid, int gno) {
+				
+				con = getConnection();
+				
+				int[] cnt2 = gDAO.selectContentCnt2(con, userid, gno);
+				
+				
+				close(con);
+				
+				return cnt2;
+			}
+
+
 
 
 }
