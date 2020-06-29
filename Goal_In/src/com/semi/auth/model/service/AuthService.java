@@ -22,7 +22,7 @@ public class AuthService {
 	
 		int result = aDAO.insertAuth(con, a);
 		
-	
+		
 		if (result > 0) { // 인증하기 추가 성공
 			 aDAO.updatepercent(con, a); // 달성율 증가시키는 쿼리
 			commit(con);
