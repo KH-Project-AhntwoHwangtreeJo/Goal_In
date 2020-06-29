@@ -93,4 +93,17 @@ public class JoinService {
 			return result;
 		}
 
+
+
+		public int joinCnt(String userid) {
+			con = getConnection();
+			
+			int joincnt = jDAO.joinCnt(con, userid);
+			
+			System.out.println(joincnt);
+			close(con);
+			
+			return joincnt;
+		}
+
 }

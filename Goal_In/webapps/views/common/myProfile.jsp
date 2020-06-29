@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"  import="com.semi.member.model.vo.*, com.semi.point.model.vo.*, java.util.*,com.semi.join.model.vo.*, com.semi.goal.model.vo.*"%>
 <%
 	ArrayList<GetPoint> pList = (ArrayList<GetPoint>) request.getAttribute("plist");
+	int joincnt = (int)request.getAttribute("joincnt");
 %>
 <!DOCTYPE html>
  <aside class="single_sidebar_widget search_widget mx-auto text-center">
@@ -16,10 +17,8 @@
                                     
                                     <div>
                                     	<p>닉네임 : <%= m.getNickname() %></p><br>
-                                    	<% for(GetPoint gp : pList){ %>
-                                    	<p>잔여포인트 : <%= m.getBalance() %> + <%=gp.getErn() %></p><br>
-                                    	<p>참여중인 골 갯수</p><br>
-                                    	<% }  %>
+                                    	<p>잔여포인트 : <%= m.getBalance() %></p><br>
+                                    	<p>참여중인 골 갯수 : <%= joincnt %></p><br>
                                     </div>
                                 </div>
                         </aside>
