@@ -230,5 +230,36 @@ public class JoinDAO {
 			
 			return result;
 		}
+		public int joinCnt(Connection con, String userid) {
+			int joincnt = 0;
+			PreparedStatement pstmt = null;
+			ResultSet rset = null;
+			String sql = prop.getProperty("cntMyJoinGoal1");
+			System.out.println("ZZZ" + userid);
+			System.out.println(sql);
+
+			try {
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, userid);
+				
+				rset = pstmt.executeQuery();
+				
+				while (rset.next()) {
+					joincnt = rset.getInt(1); // 데이터 베이스 시작은 1부터!
+				}
+				
+				System.out.println(joincnt);
+
+			} catch (SQLException e) {
+				e.printStackTrace();
+
+			} finally {
+				close(rset);
+				close(pstmt);
+			}
+
+			return joincnt;
+	
+		}
 		
 }

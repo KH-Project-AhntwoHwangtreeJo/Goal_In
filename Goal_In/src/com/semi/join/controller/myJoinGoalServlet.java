@@ -9,9 +9,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.semi.join.model.service.JoinService;
 import com.semi.join.model.vo.Join;
+import com.semi.member.model.vo.Member;
 
 /**
  * Servlet implementation class myJoinGoalServlet
@@ -35,17 +37,22 @@ public class myJoinGoalServlet extends HttpServlet {
 		HashMap<String, Object> hmap = new HashMap<String, Object>();
 		JoinService js = new JoinService();
 		
+		HttpSession session = request.getSession(false);
+		Member m = (Member)session.getAttribute("member");
 		
 		String userid = request.getParameter("userid");
 		System.out.println("userid : "+userid);
 		
 		hmap = js.selectList(userid); 
-
+		int joincnt = js.joinCnt(userid);
 		String page = "";
 		if(hmap != null) {
 			
 			request.setAttribute("list", hmap.get("list"));
 			request.setAttribute("glist", hmap.get("glist"));
+			request.setAttribute("joincnt", joincnt);
+			
+			System.out.println(joincnt);
 			
 			page = "views/join/join.jsp";
 		} else {
