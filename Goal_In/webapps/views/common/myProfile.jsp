@@ -16,10 +16,10 @@
                                     
                                     <div>
                                     	<p>닉네임 : <%= m.getNickname() %></p><br>
-                                    	<% for(GetPoint gp : pList){ %>
-                                    	<p>잔여포인트 : <%= m.getBalance() %> + <%=gp.getErn() %></p><br>
+                                    
+                                    	<p>잔여포인트 : <%= m.getBalance() %> </p><br>
                                     	<p>참여중인 골 갯수</p><br>
-                                    	<% }  %>
+                                    	
                                     </div>
                                 </div>
                         </aside>
