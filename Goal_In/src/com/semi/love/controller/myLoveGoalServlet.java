@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.semi.join.model.service.JoinService;
 import com.semi.love.model.service.LoveService;
 
 /**
@@ -32,18 +33,21 @@ public class myLoveGoalServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HashMap<String, Object> hmap = new HashMap<String, Object>();
 		LoveService ls = new LoveService();
+		JoinService js = new JoinService();
 		
 		
 		String userid = request.getParameter("userid");
 		System.out.println("userid : "+userid);
 		
-		hmap = ls.selectList(userid); 
+		hmap = ls.selectList(userid);
+		int joincnt = js.joinCnt(userid);
 
 		String page = "";
 		if(hmap != null) {
 			
 			request.setAttribute("list", hmap.get("list"));
 			request.setAttribute("glist", hmap.get("glist"));
+			request.setAttribute("joincnt", joincnt);
 			
 			page = "views/love/love.jsp";
 		} else {
