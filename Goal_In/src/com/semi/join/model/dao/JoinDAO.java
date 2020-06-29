@@ -203,4 +203,32 @@ public class JoinDAO {
 			}
 			return result;
 		}
+		
+		public int updateGoalSuccess(Connection con, String userid, int gno, int mpercent, String success) {
+			int result  = 0;
+			PreparedStatement pstmt = null;
+			String sql = prop.getProperty("updateGoalSuccess");
+			if(mpercent >= 80) {
+				success = "Y";
+			} else {
+				success = "N";
+			}
+			try {
+				pstmt = con.prepareStatement(sql);
+				
+				pstmt.setString(1, success);
+				pstmt.setString(2, userid);
+				pstmt.setInt(3,  gno);
+				
+				result = pstmt.executeUpdate();
+				System.out.println(result);
+			} catch (SQLException e ) {
+				e.printStackTrace();
+			} finally {
+				close(pstmt);
+			}		
+			
+			return result;
+		}
+		
 }

@@ -77,5 +77,20 @@ public class JoinService {
 			
 			return result;
 		}
+		
+		public int updateGoalSuccess(String userid, int gno, int mpercent, String success) {
+			con = getConnection();
+
+			int result = jDAO.updateGoalSuccess(con, userid, gno, mpercent, success);
+
+			if (result > 0)
+				commit(con);
+			else
+				rollback(con);
+
+			close(con);
+
+			return result;
+		}
 
 }
