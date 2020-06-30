@@ -48,6 +48,14 @@
 
 ### 회원 삭제
 
+![회원삭제](https://user-images.githubusercontent.com/66407391/86067844-c7f5b300-bab0-11ea-890b-629a00126949.gif)
+
+-
+-
+
+### 골 참여하기 관심등록 및 취소
+
+
 
 
 
