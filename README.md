@@ -118,14 +118,6 @@
 -
 -
 
-
-### 메인 페이지_top10 조회
-
-![top-10](https://user-images.githubusercontent.com/66407414/86108623-58a6b000-bafe-11ea-9ee1-523664300bfa.gif)
-
--
--
-
 ### 메인 검색바 
 
 ![메인_검색바](https://user-images.githubusercontent.com/66407414/86108627-5a707380-bafe-11ea-94b1-18904a86ef65.gif)
@@ -133,6 +125,12 @@
 -
 -
 
+### 메인 페이지_top10 조회
+
+![top-10](https://user-images.githubusercontent.com/66407414/86108623-58a6b000-bafe-11ea-9ee1-523664300bfa.gif)
+
+-
+-
 
 ### 메인페이지 카테고리별 조회
 
