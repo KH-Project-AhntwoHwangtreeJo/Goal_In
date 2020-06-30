@@ -41,7 +41,12 @@
 
 ### 회원가입 및 로그인
 
+![회원가입_로그인](https://user-images.githubusercontent.com/66407391/86067812-b01e2f00-bab0-11ea-8c43-781fd48871e0.gif)
 
+-
+-
+
+### 회원 삭제
 
 
 
