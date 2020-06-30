@@ -34,6 +34,13 @@
 
 ### 회원정보 수정
 
+![회원 수정](https://user-images.githubusercontent.com/66407391/86067706-74836500-bab0-11ea-9533-51f02d8a32db.gif)
+
+-
+-
+
+### 회원가입 및 로그인
+
 
 
 
