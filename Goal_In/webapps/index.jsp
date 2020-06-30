@@ -394,5 +394,5 @@
         </div>
     </div>
     <!-- /testimonial_area  -->
-
+    
 	<%@ include file="views/common/footer.jsp" %>
