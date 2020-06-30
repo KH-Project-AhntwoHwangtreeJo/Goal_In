@@ -141,7 +141,34 @@
 -
 -
 
+### 포인트 충전 
 
+![InsertPoint](https://user-images.githubusercontent.com/66407414/86117041-53029780-bb09-11ea-837c-05e5972e1d5f.gif)
+
+-
+-
+
+### 포인트 충전 내역 
+
+![pointList](https://user-images.githubusercontent.com/66407414/86117050-56961e80-bb09-11ea-848c-40c96863d075.gif)
+
+-
+-
+
+### 포인트 사용 내역
+
+![pointUsedList](https://user-images.githubusercontent.com/66407414/86117059-59910f00-bb09-11ea-9cfc-8ee94244d2b0.gif)
+
+-
+-
+
+### 골 성공시 얻는 보상 자동 업데이트
+
+![getEarn1](https://user-images.githubusercontent.com/66407414/86117062-5b5ad280-bb09-11ea-83b1-e5a15e2637f4.gif)
+![getEarn2](https://user-images.githubusercontent.com/66407414/86117065-5d249600-bb09-11ea-9185-4dc4bfe91d31.gif)
+
+-
+-
 
 
 
