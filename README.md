@@ -65,9 +65,19 @@
 -
 
 
+### 관리자 회원 관리
+
+
+
 ### 관리자페이지 골 관리
 
+![관리자_골관리](https://user-images.githubusercontent.com/66407391/86068023-42bece00-bab1-11ea-80b1-fe253900e9c6.gif)
 
+-
+-
+
+
+### 관리자 
 
 
 
