@@ -71,6 +71,13 @@
 - ( DB에서 활성화여부를 'Y'->'N'으로 돌려놓아 탈퇴해도 회원정보는 어느 일정 기간동안 보관)
 
 
+### 리뷰 쓰기 및 조회
+
+![리뷰 쓰기_해당골 리뷰list](https://user-images.githubusercontent.com/66407414/86108484-2ac16b80-bafe-11ea-9097-282d7d358b07.gif)
+
+-
+-
+
 
 ### 관리자 회원 관리
 
@@ -104,7 +111,27 @@
 -
 
 
+### 메인 페이지_top10 조회
 
+![top-10](https://user-images.githubusercontent.com/66407414/86108623-58a6b000-bafe-11ea-9ee1-523664300bfa.gif)
+
+-
+-
+
+### 메인 검색바 
+
+![메인_검색바](https://user-images.githubusercontent.com/66407414/86108627-5a707380-bafe-11ea-94b1-18904a86ef65.gif)
+
+-
+-
+
+
+### 메인페이지 카테고리별 조회
+
+![메인_골카테고리](https://user-images.githubusercontent.com/66407414/86108634-5c3a3700-bafe-11ea-8c68-86001993286b.gif)
+
+-
+-
 
 
 
