@@ -110,17 +110,15 @@
 
 ![관리자_인증전체List](https://user-images.githubusercontent.com/66407391/86068140-87e30000-bab1-11ea-90bd-d300064a3630.gif)
 
--
--
+-인증 전체 목록 테이블을 통하여 인증하기를 이용한 이용자를 관리할 수 있습니다.
 
 
 ### 관리자 공지사항 등록 및 관리
 
 ![관리자_공지사항등록](https://user-images.githubusercontent.com/66407391/86068138-86b1d300-bab1-11ea-85fd-d7e1eb4c4352.gif)
 
--
--
-
+- 메인페이지에서 공지사항을 사용자들이 상세 조회가 가능합니다.
+- 공지사항 작성 및 수정, 삭제는 관리자 페이지에서만 관리할 수 있습니다.
 ### 메인 검색바 
 
 ![메인_검색바](https://user-images.githubusercontent.com/66407414/86108627-5a707380-bafe-11ea-94b1-18904a86ef65.gif)
