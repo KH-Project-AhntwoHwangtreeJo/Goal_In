@@ -204,24 +204,21 @@ public class JoinDAO {
 			return result;
 		}
 		
-		public int updateGoalSuccess(Connection con, String userid, int gno, int mpercent, String success) {
+		//2020-07-02 (성공여부 변경) 
+		public int updateGoalSuccess(Connection con, String userid, int gno) {
 			int result  = 0;
 			PreparedStatement pstmt = null;
-			String sql = prop.getProperty("updateGoalSuccess");
-			if(mpercent >= 80) {
-				success = "Y";
-			} else {
-				success = "N";
-			}
+			String sql = prop.getProperty("goalSuccessUpdate");
+			System.out.println("sql" +   sql);
 			try {
 				pstmt = con.prepareStatement(sql);
 				
-				pstmt.setString(1, success);
-				pstmt.setString(2, userid);
-				pstmt.setInt(3,  gno);
+				pstmt.setString(1, userid);
+				pstmt.setInt(2, gno);
 				
 				result = pstmt.executeUpdate();
-				System.out.println(result);
+	
+				System.out.println("result" +  result);
 			} catch (SQLException e ) {
 				e.printStackTrace();
 			} finally {
@@ -229,6 +226,7 @@ public class JoinDAO {
 			}		
 			
 			return result;
+			
 		}
 		public int joinCnt(Connection con, String userid) {
 			int joincnt = 0;

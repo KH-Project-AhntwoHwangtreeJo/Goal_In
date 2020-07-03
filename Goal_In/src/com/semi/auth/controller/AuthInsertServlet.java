@@ -16,6 +16,7 @@ import com.semi.auth.model.vo.Auth;
 import com.semi.goal.model.service.GoalService;
 import com.semi.join.*;
 import com.semi.join.model.service.JoinService;
+import com.semi.join.model.vo.Join;
 
 /**
  * Servlet implementation class AuthInsertServlet
@@ -82,14 +83,13 @@ public class AuthInsertServlet extends HttpServlet {
 		String signcf = mre.getFilesystemName("signcf");
 		
 		
-		  //System.out.println(gno); 
-		  //System.out.println(userid);
-		  //System.out.println(signcf);
-		
 		// 6. 전달받은 값을 서비스로 넘기기
 		Auth a = new Auth(userid, gno, signcf);  
 		
 		int result = new AuthService().insertAuth(a);
+		JoinService js = new JoinService();
+		js.updateGoalSuccess(userid, gno);
+		
 		//System.out.println("RESULT: "+result);
 		if (result > 0) {
 			// response.sendRedirect("goalDetail.go");
@@ -99,13 +99,6 @@ public class AuthInsertServlet extends HttpServlet {
 			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
 		}
 		
-		// 골  달성률 80이상이면 성공여부 변경
-		String userId = request.getParameter("userid");
-		int Gno = Integer.parseInt(request.getParameter("Gno"));
-		int Mpercent = Integer.parseInt(request.getParameter("mpercent"));
-		String Success = request.getParameter("success");
-	
-    int result1 = new JoinService().updateGoalSuccess(userid, gno, Mpercent, Success);
 
     response.setContentType("application/json; charset=utf-8");
     response.getWriter().print(result);

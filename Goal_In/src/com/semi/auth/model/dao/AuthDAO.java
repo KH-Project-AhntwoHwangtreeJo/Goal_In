@@ -182,4 +182,44 @@ public class AuthDAO {
 		
 	}
 
+
+
+	//인증 참여시 개인 달성률 증가(2020-06-29)
+	public int updatepercent(Connection con, Auth a) {
+	int result = 0;
+	ResultSet rset = null;
+	PreparedStatement pstmt = null;
+
+
+	String sql = prop.getProperty("authpersent");
+
+
+	try {
+	   pstmt = con.prepareStatement(sql);
+
+	   
+	   pstmt.setInt(1, a.getGno());
+	   pstmt.setString(2, a.getUserid());
+	   pstmt.setInt(3, a.getGno());
+	   pstmt.setString(4, a.getUserid());   
+	   
+	   
+	   rset =pstmt.executeQuery();
+
+
+
+	} catch (SQLException e) {
+	   e.printStackTrace();
+	} finally {
+	   
+	   close(pstmt);
+	}
+
+	return result;
+
+
+	}
+
+
+
 }
