@@ -77,11 +77,13 @@ public class JoinService {
 			
 			return result;
 		}
-		
-		public int updateGoalSuccess(String userid, int gno, int mpercent, String success) {
+
+
+		//2020-07-02  (성공여부 변경)
+		public int updateGoalSuccess(String userid, int gno) {
 			con = getConnection();
 
-			int result = jDAO.updateGoalSuccess(con, userid, gno, mpercent, success);
+			int result = jDAO.updateGoalSuccess(con, userid, gno);
 
 			if (result > 0)
 				commit(con);
@@ -105,5 +107,8 @@ public class JoinService {
 			
 			return joincnt;
 		}
+
+
+
 
 }
