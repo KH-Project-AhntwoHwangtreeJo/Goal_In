@@ -19,17 +19,18 @@ public class AuthService {
 	   // 인증하기 메소드  2020-06-29 (개인 달성률 서비스)
     public int insertAuth(Auth a) {
        con = getConnection();
-      // 인증하기 클릭시 SIGN 테이블 추가
+       // 인증하기 클릭시 SIGN 테이블 추가
+    
        int result = aDAO.insertAuth(con, a);
+       
+       
           // 달성율 업데이트 해야하나?  확인
-          // 1이면 오늘 인증 처음 등록 / 1이상 : 오늘 그 갯수만큼 인증 한 것
+          // 1이면 오늘 인등 처음 등록 / 1이상 : 오늘 그 갯수만큼 인증 한 것
           int dupresult = aDAO.authDeclarationSelect(con,a.getSignnum(), a.getUserid());
-          if  (dupresult == 1) { // 오늘 처음 인증 한거 / 당성률을 증가
+          if  (dupresult == 1) { // 오늘 처음 인증 한거 
         	  if (result > 0) { // 인증하기 추가 성공
-        		  aDAO.updatepercent(con, a); // 달성율 증가시키는 쿼리
-        		  
-        		  commit(con);
-             
+        		  aDAO.updatepercent(con, a); // 달성율 증가시키는 쿼리	  
+        		  commit(con);         
        }else
           rollback(con);
        }
